@@ -10,7 +10,7 @@ gpio.mode(2, gpio.OUTPUT);
 gpio.write(2, gpio.HIGH);
 function rigisters_read( word_addr,size)
 	i2c.start(0);
-	i2c.address(0, 0 ,i2c.TRANSMITTER); --set for write
+	i2c.address(0, 7 ,i2c.TRANSMITTER); --set for write
 	i2c.write(0,word_addr); -- register address
 	i2c.start(0);
 	i2c.address(0, 1,i2c.RECEIVER); --setting for read
@@ -20,7 +20,7 @@ function rigisters_read( word_addr,size)
 end
 function byte_write(word_addr,mask,data)
 	i2c.start(0);								--start i2c module 
-	i2c.address(0, 0 ,i2c.TRANSMITTER); 		--set for writing to chip
+	i2c.address(0, 6 ,i2c.TRANSMITTER); 		--set for writing to chip
 	i2c.write(0,word_addr);						--write address
 	i2c.write(0,data);						--write data
     i2c.stop(0);								--stop tranfer
